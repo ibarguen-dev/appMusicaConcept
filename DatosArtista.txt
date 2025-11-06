@@ -1,4 +1,0 @@
-25|andres|colombia|-1
-1|santiago|Argentina|-1
-2|jorge|chile|-1
-3|sara|española|2

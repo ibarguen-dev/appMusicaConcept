@@ -7,20 +7,13 @@ public class CrudArtista {
 
     }
 
-    public void IngresarCurso()
+    public void IngresarArtista()
     {
         Artista objA = new Artista();
-        int codArtsita = leerCodArtista("Ingresar Codigo del artista: ");
+        int codArtsita = leerCodArtista("Ingresar Codigo del artista: ",objA);
 
-        if(Buscar(objArchivo,codArtsita) == false)
-        {//si no lo encuentra
             objA = objA.leerDatosArtista(codArtsita);//lee toda la informacion y recibe el objeto
             Grabar(objArchivo,objA);  //metodo que graba fisicamente el registro en memoria
-        }
-        else
-        {
-            System.out.println("*****Curso YA existe en el archivo*****");
-        }//Fin if
     }//fin  de ingresar Estudiante
 
     public void Grabar(Archivo objArchivos, Artista objA )
@@ -38,7 +31,7 @@ public class CrudArtista {
         {
             Artista objA = new Artista();
             int tamaño = objArch.contadorLineas("DatosArtista.txt");
-            objArch.abrirModoLectura("DatosCursos.txt");
+            objArch.abrirModoLectura("DatosArtista.txt");
             Artista vecA[] = new Artista[tamaño];
             vecA = objArch.leerArtista();//retorna el vector tipo objeto y se le asigna al vector definido en esta clase
             int i=0;
@@ -62,6 +55,6 @@ public class CrudArtista {
         }
         return sw;
 
-    }//fin de buscar*/
+    }
 
 }
