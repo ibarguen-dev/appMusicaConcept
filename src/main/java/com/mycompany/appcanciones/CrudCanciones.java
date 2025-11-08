@@ -13,7 +13,7 @@ public class CrudCanciones {
     public void IngresarCanciones()
     {
         Cancion objC = new Cancion();
-        int codCancion = leerCodCancion("Ingresar Codigo de la cancion: ",objC);
+         int codCancion = leerCodCancion("Ingresar Codigo de la cancion: ",objC);
 
             objC = objC.leerDatosCancion(codCancion);//lee toda la informacion y recibe el objeto
             Grabar(objArchivo,objC);  //metodo que graba fisicamente el registro en memoria
@@ -26,37 +26,22 @@ public class CrudCanciones {
         objArchivos.cerrarModoEscritura();
     }//fin  Grabar Estudiante
 
-    public boolean Buscar(Archivo objArch, int coArstita) //busca en un vector tipo Estudiante
+    public Cancion[] Listar() //busca en un vector tipo Estudiante
     {
-        boolean sw=false;
-        int cod;
+        int tamaño = objArchivo.contadorLineas("DatosCancion.txt");
+        Cancion vecC[] = new Cancion[tamaño];
         try
         {
-            Artista objA = new Artista();
-            int tamaño = objArch.contadorLineas("DatosCancion.txt");
-            objArch.abrirModoLectura("DatosCancion.txt");
-            Artista vecA[] = new Artista[tamaño];
-            vecA = objArch.leerArtista();//retorna el vector tipo objeto y se le asigna al vector definido en esta clase
-            int i=0;
-            int cantRegistros = objArch.contadorLineas("DatosCancion.txt");
-            while (i<= cantRegistros)
-            {
-                objA = vecA[i];
-                cod = objA.getCodArtista();
-                if(cod == coArstita)
-                {
-                    sw=true;
-                    break;
-                }
-                i++;
-            }//fin mientras
-            objArch.cerrarModoLectura();
+            Cancion objC = new Cancion();
+            objArchivo.abrirModoLectura("DatosCancion.txt");
+            vecC = objArchivo.leerCancio();//retorna el vector tipo objeto y se le asigna al vector definido en esta clase
+            objArchivo.cerrarModoLectura();
 
         } catch (Exception e)
         {
             System.out.println("***Archivo leido y cerrado correctamente*****");
         }
-        return sw;
+        return vecC;
 
     }
 }

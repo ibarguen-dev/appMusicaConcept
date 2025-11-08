@@ -1,0 +1,20 @@
+1|Andrés|Colombia|1
+2|Sofía|España|5
+3|Javier|México|9
+4|Valentina|Argentina|2
+5|Ricardo|Chile|7
+6|Mariana|Perú|4
+7|Felipe|Ecuador|8
+8|Isabella|Venezuela|3
+9|Diego|Uruguay|6
+10|Camila|Paraguay|1
+11|Pablo|Bolivia|5
+12|Lucía|Cuba|9
+13|Alejandro|Guatemala|2
+14|Elena|Honduras|7
+15|Miguel|El Salvador|4
+16|Gabriela|Nicaragua|8
+17|Juan|Costa Rica|3
+18|Andrea|Panamá|6
+19|Carlos|Puerto Rico|1
+20|Natalia|República Dominicana|5

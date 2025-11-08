@@ -15,9 +15,9 @@ public class Artista {
 
 
     public Artista leerDatosArtista(int codArtista){
-        nombre = leerNombreArtista("Ingresar el nombre del artista");
-        nacionalidad = leerNacionalidadArtista("Ingresar la nacionalidad del artista");
-        añosCarrea = leerAñosArtista("Ingresar los años de carrera del artista");
+        nombre = leerNombreArtista("Ingresar el nombre del artista: ");
+        nacionalidad = leerNacionalidadArtista("Ingresar la nacionalidad del artista: ");
+        añosCarrea = leerAñosArtista("Ingresar los años de carrera del artista: ");
         return  new Artista(codArtista,nombre,nacionalidad,añosCarrea);
     }
 

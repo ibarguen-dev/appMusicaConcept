@@ -7,9 +7,9 @@ package com.mycompany.appcanciones;
 public class AppCanciones {
 
     public static void main(String[] args) {
-       // CrudArtista c = new CrudArtista();
-       // c.IngresarCurso();
+        CrudArtista a = new CrudArtista();
+        ListaReproducion lista = new ListaReproducion();
         CrudCanciones c = new CrudCanciones();
-        c.IngresarCanciones();
+        lista.Creacion(c,a);
     }
 }

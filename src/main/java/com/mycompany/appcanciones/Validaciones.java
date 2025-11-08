@@ -7,22 +7,21 @@ public class Validaciones {
 
     public static  String leerNombreArtista(String mensaje){
         String nombre = "";
-
         while (nombre.isEmpty()){
-            System.out.println(mensaje);
-            nombre = sc.nextLine();
+            System.out.print(mensaje);
+            nombre = sc.next();
             if(nombre.isEmpty()){
                 System.out.println("Debes colocar el nombre del artista");
             }
         }
-        return nombre;
+        return nombre.toLowerCase();
     }
 
     public static int leerAñosArtista(String mensaje){
         int años = -1;
 
         while (años<0){
-            System.out.println(mensaje);
+            System.out.print(mensaje);
             años = sc.nextInt();
             if(años<0){
                 System.out.println("Los años de artista es incorrecto");
@@ -35,26 +34,26 @@ public class Validaciones {
         String nacionalidad = "";
 
         while (nacionalidad.isEmpty()){
-            System.out.println(mensaje);
-            nacionalidad = sc.nextLine();
-            System.out.println(nacionalidad);
+            System.out.print(mensaje);
+            nacionalidad = sc.next();
             if(nacionalidad.isEmpty()){
                 System.out.println("Debes colocar el nacionalidad del artista");
             }
         }
-        return nacionalidad;
+        return nacionalidad.toLowerCase();
     }
 
     public static  int leerCodArtista(String mensaje,Artista objA){
         int cod = -1;
         boolean existe = true;
         while (cod<0 || existe){
-            System.out.println(mensaje);
+            System.out.print(mensaje);
             cod = sc.nextInt();
             if(cod < 0){
                 System.out.println("Debes de colocar un codigo valido");
             }
-            if(BuscarCodigoArtista(objA,cod)){
+            existe = BuscarCodigoArtista(objA,cod);
+            if(existe){
                 System.out.println("E lcodigo ya existe");
             }
         }
@@ -63,14 +62,15 @@ public class Validaciones {
 
     public static  int leerCodArtistaCancion(String mensaje,Artista objA){
         int cod = -1;
-        boolean existe = false;
-        while (cod<0 || !existe){
-            System.out.println(mensaje);
+        boolean existe = true;
+        while (cod<0 || existe){
+            System.out.print(mensaje);
             cod = sc.nextInt();
             if(cod < 0){
                 System.out.println("Debes de colocar un codigo valido");
             }
-            if(!BuscarCodigoArtista(objA,cod)){
+            existe = !BuscarCodigoArtista(objA,cod);
+            if(existe){
                 System.out.println("El codigo del artista no existe");
             }
         }
@@ -86,7 +86,8 @@ public class Validaciones {
             if(cod<0){
                 System.out.println("Debes de colocar un codigo de valido");
             }
-            if(BuscarCancion(objC,cod)){
+            existe = BuscarCancion(objC,cod);
+            if(existe){
                 System.out.println("El codigo de la cancion ya existe");
             }
         }
@@ -104,15 +105,16 @@ public class Validaciones {
             vecA = objArch.leerArtista();//retorna el vector tipo objeto y se le asigna al vector definido en esta clase
             int i = 0;
             int cantRegistros = objArch.contadorLineas("DatosArtista.txt");
-            while (i <= cantRegistros) {
-                objA = vecA[i];
-                cod = objA.getCodArtista();
-                if (cod == codArstita) {
-                    sw = true;
-                    break;
-                }
-                i++;
-            }//fin mientras
+            if(vecA.length > 0){
+                while (i <= cantRegistros) {
+                    cod = vecA[i].getCodArtista();
+                    if (cod == codArstita) {
+                        sw = true;
+                        break;
+                    }
+                    i++;
+                }//fin mientras
+            }
             objArch.cerrarModoLectura();
 
         } catch (Exception e) {
@@ -134,15 +136,17 @@ public class Validaciones {
             vecC = objArch.leerCancio();//retorna el vector tipo objeto y se le asigna al vector definido en esta clase
             int i = 0;
             int cantRegistros = objArch.contadorLineas("DatosCancion.txt");
-            while (i <= cantRegistros) {
-                objC = vecC[i];
-                cod = objC.getCodCancion();
-                if (cod == codCancion) {
-                    sw = true;
-                    break;
-                }
-                i++;
-            }//fin mientras
+            if(vecC.length >0){
+                while (i <= cantRegistros) {
+                    objC = vecC[i];
+                    cod = objC.getCodCancion();
+                    if (cod == codCancion) {
+                        sw = true;
+                        break;
+                    }
+                    i++;
+                }//fin mientras
+            }
             objArch.cerrarModoLectura();
 
         } catch (Exception e) {
@@ -190,11 +194,11 @@ public class Validaciones {
     public static String leerGenero(String mensaje){
         int opcion;
         String genero ="";
-        String gneroM[] ={"Rock", "Pop", "Jazz", "Rap", "Electrónica", "Clásica", "Blues",
-                "Reggaetón", "Country", "R&B / Soul"};
+        String gneroM[] ={"rock", "pop", "jazz", "rap", "electrónica", "clásica", "blues",
+                "reggaetón", "country"};
         while(genero.isEmpty()){
             for(int i = 0; i<gneroM.length; i++){
-                System.out.println((i +1 ) +". " +gneroM[i]);
+                System.out.println(i +". " +gneroM[i]);
             }
             System.out.println("Ingrese un gernero musical");
             opcion = sc.nextInt();

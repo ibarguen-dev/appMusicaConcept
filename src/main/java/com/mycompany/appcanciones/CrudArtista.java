@@ -23,37 +23,22 @@ public class CrudArtista {
         objArchivos.cerrarModoEscritura();
     }//fin  Grabar Estudiante
 
-    public boolean Buscar(Archivo objArch, int coArstita) //busca en un vector tipo Estudiante
+    public Artista[] Listar() //busca en un vector tipo Estudiante
     {
-        boolean sw=false;
-        int cod;
+        int tamaño = objArchivo.contadorLineas("DatosArtista.txt");
+        Artista vecA[] = new Artista[tamaño];
         try
         {
             Artista objA = new Artista();
-            int tamaño = objArch.contadorLineas("DatosArtista.txt");
-            objArch.abrirModoLectura("DatosArtista.txt");
-            Artista vecA[] = new Artista[tamaño];
-            vecA = objArch.leerArtista();//retorna el vector tipo objeto y se le asigna al vector definido en esta clase
-            int i=0;
-            int cantRegistros = objArch.contadorLineas("DatosArtista.txt");
-            while (i<= cantRegistros)
-            {
-                objA = vecA[i];
-                cod = objA.getCodArtista();
-                if(cod == coArstita)
-                {
-                    sw=true;
-                    break;
-                }
-                i++;
-            }//fin mientras
-            objArch.cerrarModoLectura();
+            objArchivo.abrirModoLectura("DatosArtista.txt");
+            vecA = objArchivo.leerArtista();//retorna el vector tipo objeto y se le asigna al vector definido en esta clase
+            objArchivo.cerrarModoLectura();
 
         } catch (Exception e)
         {
             System.out.println("***Archivo leido y cerrado correctamente*****");
         }
-        return sw;
+        return vecA;
 
     }
 

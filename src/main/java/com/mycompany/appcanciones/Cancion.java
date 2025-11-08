@@ -11,10 +11,10 @@ public class Cancion {
     public Cancion leerDatosCancion(int codCancion){
         Artista a = new Artista();
         clasificacion = leerClasificacion("Ingresar la clasificacion de la cancion: ");
-        codArtista = leerCodArtista("Ingresar el codigo del artista",a);
+        codArtista = leerCodArtistaCancion("Ingresar el codigo del artista: ",a);
         lanzamiento = leerLanzamiento("Ingresar el lanzamiento de la cancion: ");
-        nombreCancion = leerNombreCancion("Ingresar el nombre de la cancion");
-        genero = leerGenero("Ingresar genero de la cancion");
+        nombreCancion = leerNombreCancion("Ingresar el nombre de la cancion: ");
+        genero = leerGenero("Ingresar genero de la cancion: ");
         return new Cancion(codCancion,nombreCancion,clasificacion,lanzamiento,codArtista,genero);
     }
 
