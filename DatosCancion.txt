@@ -1,7 +1,7 @@
 1|Eco de la Calle|6|7|15|Electrónica
 2|Micrófono de Asfalto|6|7|3|Pop
 3|Lluvia en el Delta|6|7|19|Rock
-4|Rimas de Medianoche|6|7|8|Rap
+4|Rimas de Medianoche|6|7|19|Rap
 5|Groove Urbano|6|7|1|Jazz
 6|Acordes Quebrados|6|7|12|Reggaetón
 7|El Sollozo y el Beat|6|7|17|Country
